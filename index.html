@@ -63,20 +63,17 @@
 
   :where(#zeinput, #zeinput:focus) {
     border: none;
+    outline: none;
   }
 
   #zeinput {
     max-width: 7ch;
     white-space: nowrap;
-    outline: none;
-  }
-
-  #zeinputcontainer {
-    filter: invert(1) grayscale(1);
-    mix-blend-mode: difference;
   }
   #zeinputcontainer {
     position: relative;
+    filter: invert(1) grayscale(1);
+    mix-blend-mode: difference;
   }
   #zeinputcontainer::before {
     position: absolute;
