@@ -7,10 +7,18 @@
   <title>Color</title>
 </head>
 <body>
+  <div id="zebackground">
+    <div id="zeinputcontainer">
+      <input id="zeinput" type="text" />
+    </div>
+  </div>
+
   <style>
     :root {
       --font-size: 48px;
       --background-color: lavender; /* Or what have you */
+
+      --input-width: 6ch;
     }
   /*
     Use a more-intuitive box-sizing model.
@@ -29,7 +37,7 @@
   */
   html, body {
     height: 100%;
-    font-family: system-ui;
+    font-family: monospace;
     font-size: var(--font-size);
   }
   /*
@@ -67,27 +75,28 @@
   }
 
   #zeinput {
-    max-width: 7ch;
+    /* max-width: calc(var(--input-width) + 1ch); */
+    max-width: var(--input-width);
     white-space: nowrap;
+
+    padding: 0;
+    margin: 0;
   }
   #zeinputcontainer {
     position: relative;
     filter: invert(1) grayscale(1);
     mix-blend-mode: difference;
   }
-  #zeinputcontainer::before {
+   #zeinputcontainer::before {
     position: absolute;
     content: '#';
+
+    inset: 0;
     left: -1.5ch;
-    top: 0;
+    pointer-events: none;
   }
 
   </style>
-  <div id="zebackground">
-    <div id="zeinputcontainer">
-      <input id="zeinput" type="text" />
-    </div>
-  </div>
 
   <script type="text/javascript">
     /**
